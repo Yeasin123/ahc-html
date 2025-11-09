@@ -69,7 +69,7 @@ document.getElementById('quoteForm').addEventListener('submit', function (e) {
   }
 
   window.addEventListener('load', function () {
-    setTimeout(showPopup, 5000);
+    setTimeout(showPopup, 9000);
   });
 
   if (closeBtn) closeBtn.addEventListener('click', hidePopup);
@@ -89,12 +89,6 @@ document.getElementById('quoteForm').addEventListener('submit', function (e) {
   }
 })();
 
-window.addEventListener("load", function () {
-  const loader = document.getElementById("preloader");
-  if (!loader) return;
-  loader.classList.add("hide");
-  setTimeout(() => loader.remove(), 1000);
-});
 
 $(document).ready(function () {
   $('.brand-slider').slick({
@@ -132,3 +126,62 @@ $(document).ready(function () {
   });
 });
 
+document.getElementById("year").textContent = new Date().getFullYear();
+(function () {
+  const preloader = document.getElementById('preloader');
+  if (!preloader) return;
+
+  // Hide preloader (with fade-out if you have CSS transition)
+  function hidePreloader() {
+    if (!preloader.classList.contains('ahc-preloader-hidden')) {
+      preloader.classList.add('ahc-preloader-hidden');
+      preloader.style.opacity = '0';
+      preloader.style.visibility = 'hidden';
+      preloader.style.pointerEvents = 'none';
+    }
+  }
+
+  // 1) Hide as soon as DOM is ready
+  document.addEventListener('DOMContentLoaded', function () {
+    // hidePreloader();
+  });
+
+  // 2) Safety: force hide after max 3s even if something blocks
+  setTimeout(hidePreloader, 3000);
+})();
+
+document.addEventListener('DOMContentLoaded', function () {
+  const lazyImages = document.querySelectorAll('img[data-lazy]');
+  if (!lazyImages.length) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          const src = img.getAttribute('data-lazy');
+          if (src) {
+            img.src = src;
+            img.setAttribute('loading', 'lazy');
+            img.removeAttribute('data-lazy');
+          }
+          obs.unobserve(img);
+        }
+      });
+    }, {
+      rootMargin: '200px 0px',
+      threshold: 0.01
+    });
+
+    lazyImages.forEach(img => observer.observe(img));
+  } else {
+    // Fallback for very old browsers
+    lazyImages.forEach(img => {
+      const src = img.getAttribute('data-lazy');
+      if (src) {
+        img.src = src;
+        img.removeAttribute('data-lazy');
+      }
+    });
+  }
+});
