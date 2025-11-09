@@ -392,9 +392,10 @@
    background-color: #ffffff;
  }
 
- .coverage-section h2{
-  font-size: 2.5rem;
+ .coverage-section h2 {
+   font-size: 2.5rem;
  }
+
  .cover-item {
    background: #fff;
    border: 1px solid #eaeaea;
@@ -439,9 +440,9 @@
    transform: scale(1.05);
  }
 
- #contact  {
-  padding: 60px 0;
-    background: #F9FAFB;
+ #contact {
+   padding: 60px 0;
+   background: #F9FAFB;
  }
 
  /* Modal */
@@ -561,220 +562,6 @@
    }
  }
 
- .promo-banner-full {
-   width: 100%;
-   background: linear-gradient(90deg, #0052cc, #00aaff);
-   color: #ffffff;
-   font-size: 14px;
-   font-weight: 600;
-   position: relative;
-   z-index: 1000;
- }
-
- .promo-banner-full .container {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
- }
-
- .promo-banner-full .banner-text {
-   line-height: 1.2;
- }
-
- .promo-banner-full .banner-cta {
-   border-radius: 999px;
-   padding: 8px 20px;
-   background: #ffffff;
-   color: #0052cc;
-   text-transform: uppercase;
-   font-size: 12px;
-   font-weight: 600;
-   box-shadow: 0 6px 18px rgba(0, 82, 204, 0.35);
-   transition: all .2s ease;
- }
-
- .promo-banner-full .banner-cta:hover {
-   background: #f0f8ff;
-   transform: translateY(-2px);
- }
-
- [data-theme="dark"] .promo-banner-full {
-   background: linear-gradient(90deg, #022447, #00396a);
- }
-
- [data-theme="dark"] .promo-banner-full .banner-cta {
-   background: #1d2634;
-   color: #00aaff;
-   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
- }
-
- /* Promo Banner Above Quote */
- .promo-banner-animated {
-   position: relative;
-   overflow: hidden;
-   padding: 48px 16px 52px;
-   text-align: center;
-   border-radius: 0;
-   /* full-width strip style */
-   margin: 0;
-   background: linear-gradient(135deg,
-       #0f172a,
-       #111827,
-       #1d4ed8);
-   color: #e5e7eb;
- }
-
- [data-theme="dark"] .promo-banner-animated {
-   background: linear-gradient(135deg,
-       #020817,
-       #111827,
-       #1d4ed8);
- }
-
- /* Decorative shapes wrapper */
- .promo-bg-design {
-   position: absolute;
-   inset: 0;
-   z-index: 1;
-   pointer-events: none;
- }
-
- /* LEFT angled block */
- .bg-shape-left {
-   position: absolute;
-   top: -40px;
-   left: -10%;
-   width: 55%;
-   height: 75%;
-   background: linear-gradient(145deg,
-       rgba(255, 255, 255, 0.10),
-       rgba(148, 163, 253, 0.08),
-       transparent);
-   border-radius: 40px;
-   transform: skewX(-10deg);
- }
-
- /* RIGHT angled block */
- .bg-shape-right {
-   position: absolute;
-   bottom: -60px;
-   right: -8%;
-   width: 50%;
-   height: 80%;
-   background: linear-gradient(315deg,
-       rgba(56, 189, 248, 0.10),
-       rgba(15, 23, 42, 0.18),
-       transparent);
-   border-radius: 40px;
-   transform: skewX(8deg);
- }
-
- /* Wave band at bottom */
- .bg-wave {
-   position: absolute;
-   bottom: -40px;
-   left: -5%;
-   width: 110%;
-   height: 130px;
-   background: linear-gradient(to right,
-       rgba(250, 204, 21, 0.16),
-       rgba(37, 99, 235, 0.16),
-       rgba(56, 189, 248, 0.14));
-   border-radius: 80% 80% 0 0;
-   opacity: 0.9;
- }
-
- /* Soft center glow */
- .bg-glow {
-   position: absolute;
-   top: -10px;
-   left: 50%;
-   width: 520px;
-   height: 520px;
-   transform: translateX(-50%);
-   background: radial-gradient(circle,
-       rgba(255, 255, 255, 0.16),
-       transparent 70%);
-   mix-blend-mode: screen;
-   opacity: 0.85;
- }
-
- /* Accent line */
- .bg-accent-line {
-   position: absolute;
-   top: 36%;
-   left: 12%;
-   width: 76%;
-   height: 2px;
-   background: linear-gradient(to right,
-       transparent,
-       rgba(250, 204, 21, 0.7),
-       rgba(56, 189, 248, 0.0));
-   opacity: 0.65;
- }
-
- /* CONTENT */
- .promo-content {
-   position: relative;
-   z-index: 5;
-   max-width: 960px;
-   margin: 0 auto;
- }
-
- .promo-top-text {
-   font-size: 0.9rem;
-   font-weight: 600;
-   letter-spacing: 0.18em;
-   text-transform: uppercase;
-   color: #9ca3af;
-   margin-bottom: 4px;
- }
-
- .promo-main-text {
-   font-size: 2.3rem;
-   font-weight: 800;
-   margin: 4px 0 6px;
-   line-height: 1.1;
-   color: #f9fafb;
-   text-shadow: 0 10px 26px rgba(0, 0, 0, 0.65);
- }
-
- .promo-percent {
-   font-size: 2.5rem;
-   margin-right: 6px;
-   color: #22c55e;
- }
-
- /* Responsive */
- @media (max-width: 768px) {
-   .promo-banner-animated {
-     padding: 34px 14px 40px;
-   }
-
-   .promo-main-text {
-     font-size: 1.7rem;
-   }
-
-   .promo-percent {
-     font-size: 1.9rem;
-   }
-
-   .promo-top-text {
-     font-size: 0.75rem;
-     letter-spacing: 0.12em;
-   }
-
-   .bg-shape-left,
-   .bg-shape-right {
-     opacity: 0.5;
-   }
-
-   .bg-wave {
-     height: 90px;
-   }
- }
-
- /* ====== SELECT A PLAN (MATCH YOUR SCREENSHOT) ====== */
 
  /* =========================
    SELECT A PLAN SECTION
@@ -888,19 +675,19 @@
    padding: 10px 18px 4px;
  }
 
-.plan-btn-choose {
-  width: 100%;
-  border: none;
-  border-radius: 999px;
-  padding: 14px 14px;
-  background: #0052cc;
-  color: #ffffff;
-  font-size: 17px;
-  font-weight: 700;
-  text-transform: uppercase;
-  box-shadow: 0 12px 30px rgba(0, 82, 204, 0.45);
-  transition: all 0.22s ease;
-}
+ .plan-btn-choose {
+   width: 100%;
+   border: none;
+   border-radius: 999px;
+   padding: 14px 14px;
+   background: #0052cc;
+   color: #ffffff;
+   font-size: 17px;
+   font-weight: 700;
+   text-transform: uppercase;
+   box-shadow: 0 12px 30px rgba(0, 82, 204, 0.45);
+   transition: all 0.22s ease;
+ }
 
  .plan-card-v2:hover .plan-btn-choose {
    transform: translateY(-1px);
@@ -1738,159 +1525,247 @@
  [data-theme="dark"] .brand-slider {
    background: #020817;
  }
-[data-theme="dark"] .modal-modern .btn-close {
-  filter: invert(1);
-  opacity: 1;
-}
-[data-theme="dark"] .plan-free-text{
-  color: #E5E7EB !important;
-}
-.text-muted {
-  --bs-text-opacity: 1;
-  width: 58%;
-  color: #000  !important;
-  margin: 0 auto;
-}
-.cover-item {
-  background: #fff;
-  border: 1px solid #eaeaea;
-}
 
-/* =========================
+ [data-theme="dark"] .modal-modern .btn-close {
+   filter: invert(1);
+   opacity: 1;
+ }
+
+ [data-theme="dark"] .plan-free-text {
+   color: #E5E7EB !important;
+ }
+
+ .text-muted {
+   --bs-text-opacity: 1;
+   width: 58%;
+   color: #000 !important;
+   margin: 0 auto;
+ }
+
+ .cover-item {
+   background: #fff;
+   border: 1px solid #eaeaea;
+ }
+
+ /* =========================
    Dark mode: Coverage cards
    ========================= */
-[data-theme="dark"] .coverage-section {
-  background: var(--bg);
-  /* matches rest of dark sections */
-}
+ [data-theme="dark"] .coverage-section {
+   background: var(--bg);
+   /* matches rest of dark sections */
+ }
 
-[data-theme="dark"] .coverage-section .cover-item {
-  background: var(--bg-elevated);
-  border-color: var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
+ [data-theme="dark"] .coverage-section .cover-item {
+   background: var(--bg-elevated);
+   border-color: var(--border-soft);
+   box-shadow: var(--shadow-soft);
+ }
 
-[data-theme="dark"] .coverage-section h2,
-[data-theme="dark"] .coverage-section p,
-[data-theme="dark"] .coverage-section .cover-item h6 {
-  color: var(--text);
-}
+ [data-theme="dark"] .coverage-section h2,
+ [data-theme="dark"] .coverage-section p,
+ [data-theme="dark"] .coverage-section .cover-item h6 {
+   color: var(--text);
+ }
 
 
-/* ============================
+ /* ============================
    Dark Mode Section Borders
    ============================ */
-[data-theme="dark"] section,
-[data-theme="dark"] .section,
-[data-theme="dark"] .section-alt,
-[data-theme="dark"] .coverage-section,
-[data-theme="dark"] #contact {
-  border-top: 2px solid rgba(148, 163, 253, 0.12);
-  border-bottom: 2px solid rgba(148, 163, 253, 0.12);
-  background: var(--bg);
-  color: var(--text);
-}
+ [data-theme="dark"] section,
+ [data-theme="dark"] .section,
+ [data-theme="dark"] .section-alt,
+ [data-theme="dark"] .coverage-section,
+ [data-theme="dark"] #contact {
+   border-top: 2px solid rgba(148, 163, 253, 0.12);
+   border-bottom: 2px solid rgba(148, 163, 253, 0.12);
+   background: var(--bg);
+   color: var(--text);
+ }
 
-/* Make coverage cards match */
-[data-theme="dark"] .cover-item {
-  background: var(--bg-elevated);
-  border: 2px solid rgba(148, 163, 253, 0.18);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
-  color: var(--text);
-}
+ /* Make coverage cards match */
+ [data-theme="dark"] .cover-item {
+   background: var(--bg-elevated);
+   border: 2px solid rgba(148, 163, 253, 0.18);
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
+   color: var(--text);
+ }
 
-/* Contact section specific */
-[data-theme="dark"] #contact {
-  background: var(--bg-elevated);
-  border: 2px solid rgba(148, 163, 253, 0.14);
-}
+ /* Contact section specific */
+ [data-theme="dark"] #contact {
+   background: var(--bg-elevated);
+   border: 2px solid rgba(148, 163, 253, 0.14);
+ }
 
-/* Optional: smooth border transition when switching theme */
-section,
-.section,
-.section-alt,
-.cover-item,
-#contact {
-  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
-}
-/* ===== Dark Mode: Hero Quote Box ===== */
+ /* Optional: smooth border transition when switching theme */
+ section,
+ .section,
+ .section-alt,
+ .cover-item,
+ #contact {
+   transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+ }
+
+ /* ===== Dark Mode: Hero Quote Box ===== */
 
 
-[data-theme="dark"] .quote-box {
-  background: var(--bg-elevated);
-  color: var(--text);
-  border-radius: 25px;
-  border: 1px solid var(--border-soft);
-  box-shadow: var(--shadow-soft);
-}
+ [data-theme="dark"] .quote-box {
+   background: var(--bg-elevated);
+   color: var(--text);
+   border-radius: 25px;
+   border: 1px solid var(--border-soft);
+   box-shadow: var(--shadow-soft);
+ }
 
-/* Title + highlight */
-[data-theme="dark"] .quote-box .hero-title {
-  color: var(--text);
-}
+ /* Title + highlight */
+ [data-theme="dark"] .quote-box .hero-title {
+   color: var(--text);
+ }
 
-[data-theme="dark"] .quote-box .hero-title .highlight {
-  color: var(--accent);
-  /* keep that nice red accent */
-}
+ [data-theme="dark"] .quote-box .hero-title .highlight {
+   color: var(--accent);
+   /* keep that nice red accent */
+ }
 
-/* Label + input */
-[data-theme="dark"] .quote-box .zip-label {
-  color: var(--muted);
-}
+ /* Label + input */
+ [data-theme="dark"] .quote-box .zip-label {
+   color: var(--muted);
+ }
 
-[data-theme="dark"] .quote-box .zip-input {
-  background: transparent;
-  color: var(--text);
-  border-color: #22c55e;
-}
+ [data-theme="dark"] .quote-box .zip-input {
+   background: transparent;
+   color: var(--text);
+   border-color: #22c55e;
+ }
 
-[data-theme="dark"] .quote-box .zip-input::placeholder {
-  color: var(--muted);
-}
+ [data-theme="dark"] .quote-box .zip-input::placeholder {
+   color: var(--muted);
+ }
 
-/* Button + note */
-[data-theme="dark"] .quote-box .btn-quote {
-  background: var(--primary);
-  color: #fff;
-}
+ /* Button + note */
+ [data-theme="dark"] .quote-box .btn-quote {
+   background: var(--primary);
+   color: #fff;
+ }
 
-[data-theme="dark"] .quote-box .guarantee-text {
-  color: var(--muted);
-}
+ [data-theme="dark"] .quote-box .guarantee-text {
+   color: var(--muted);
+ }
 
-/* Smooth */
-.quote-box,
-.quote-box * {
-  transition: var(--transition);
-}
-[data-theme="dark"] .hero-quote-section {
-  background-image: url("https://americanhomecoverage.com/web/img/r-architecture-TRCJ-87Yoh0-unsplash.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-[data-theme="dark"]  .how-step{
-  color: #fff;
-}
-[data-theme="dark"]  #contact{
-  color: #fff !important;
-}
-[data-theme="dark"] .text-muted{
-  color: #ffffff  !important;
-}
-[data-theme="dark"] .plan-section-label{
-    color: #ffffff !important;
-}
-[data-theme="dark"] .section-sub{
-  color: #ffffff !important;
-}
-p {
-  font-size: 1rem;
-  line-height: 1.6;
-  transition: color 0.3s ease;
-}
+ /* Smooth */
+ .quote-box,
+ .quote-box * {
+   transition: var(--transition);
+ }
 
-[data-theme="dark"] .how-step strong {
-  color: #ffffff;
-}
+ [data-theme="dark"] .hero-quote-section {
+   background-image: url("https://americanhomecoverage.com/web/img/r-architecture-TRCJ-87Yoh0-unsplash.jpg");
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+ }
+
+ [data-theme="dark"] .how-step {
+   color: #fff;
+ }
+
+ [data-theme="dark"] #contact {
+   color: #fff !important;
+ }
+
+ [data-theme="dark"] .text-muted {
+   color: #ffffff !important;
+ }
+
+ [data-theme="dark"] .plan-section-label {
+   color: #ffffff !important;
+ }
+
+ [data-theme="dark"] .section-sub {
+   color: #ffffff !important;
+ }
+
+ p {
+   font-size: 1rem;
+   line-height: 1.6;
+   transition: color 0.3s ease;
+ }
+
+ [data-theme="dark"] .how-step strong {
+   color: #ffffff;
+ }
+
+ /* ===========================
+   PROMO BANNER WITH BACKGROUND IMAGE
+   =========================== */
+ .promo-banner-image {
+   position: relative;
+   width: 100%;
+   padding: 40px 20px;
+   color: #fff;
+   text-align: center;
+   background: url("https://placehold.jp/1900x270.png") center/cover no-repeat;
+   /* background-attachment: fixed; */
+   height: 25vh;
+   overflow: hidden;
+ }
+
+ /* Dark overlay for text contrast */
+ .promo-banner-image::before {
+   content: "";
+   position: absolute;
+   inset: 0;
+   background: rgba(0, 0, 0, 0.55);
+   z-index: 1;
+ }
+
+ /* Text content */
+ .promo-content {
+   position: relative;
+   z-index: 2;
+   max-width: 1000px;
+   margin: 0 auto;
+ }
+
+ /* Top small text */
+ .promo-top-text {
+   font-size: 1.5rem;
+   letter-spacing: 0.2em;
+   text-transform: uppercase;
+   font-weight: 600;
+   margin-bottom: 10px;
+   color: #facc15;
+ }
+
+ /* Main bold text */
+ .promo-main-text {
+   font-size: 2.8rem;
+   font-weight: 900;
+   text-transform: uppercase;
+   line-height: 1.1;
+   color: #fff;
+ }
+
+ .promo-main-text span {
+   background: #facc15;
+   color: #1e293b;
+   padding: 6px 14px;
+   border-radius: 999px;
+   display: inline-block;
+   margin-right: 6px;
+   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+   .promo-banner-image {
+     padding: 50px 16px;
+   }
+
+   .promo-main-text {
+     font-size: 1.8rem;
+   }
+
+   .promo-top-text {
+     font-size: 0.75rem;
+   }
+ }
