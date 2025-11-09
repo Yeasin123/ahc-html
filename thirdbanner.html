@@ -1,0 +1,174 @@
+<section class="promo-banner-animated section-banner" id="testimran"
+  style="background: {{ $banner->bg_color ? "linear-gradient(135deg, {$banner->bg_color}, {$banner->bg_color_two})" : 'linear-gradient(135deg, #0F172A, #1D4ED8)' }};">
+
+  <!-- Background design only -->
+  <div class="promo-bg-decor">
+    <div class="shape-circle shape-circle-1"></div>
+    <div class="shape-circle shape-circle-2"></div>
+    <div class="shape-pill shape-pill-1"></div>
+    <div class="shape-pill shape-pill-2"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <div class="promo-content">
+    <h3 class="promo-top-text" style="color: {{ $banner->text_one_color ?? '#E2E8F0' }}">
+      🎉 USE CODE: 
+      <span class="promo-code" style="color: {{ $banner->promo_code_color ?? '#FFD700' }}">
+        {{ $banner->promo_code }}
+      </span> 
+      AT CHECKOUT
+    </h3>
+
+    <h2 class="promo-main-text" style="color: {{ $banner->text_two_color ?? '#FACC15' }}">
+      <span class="promo-percent" style="color: {{ $banner->percent_off_color ?? '#22D3EE' }}">
+        {{ $banner->percent_off }}
+      </span>
+      {{ $banner->text_two ?? '' }}
+    </h2>
+  </div>
+</section>
+
+<style>
+.promo-banner-animated {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 20px;
+  text-align: center;
+  border-radius: 18px;
+}
+
+/* static decorative layer */
+.promo-bg-decor {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* soft circles */
+.shape-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 70%);
+  opacity: 0.9;
+}
+
+.shape-circle-1 {
+  width: 260px;
+  height: 260px;
+  top: -40px;
+  left: 8%;
+}
+
+.shape-circle-2 {
+  width: 340px;
+  height: 340px;
+  bottom: -80px;
+  right: 4%;
+  background: radial-gradient(circle at 70% 20%, rgba(250,204,21,0.22), transparent 75%);
+}
+
+/* pill shapes */
+.shape-pill {
+  position: absolute;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.02)
+  );
+  border: 1px solid rgba(255,255,255,0.16);
+  backdrop-filter: blur(4px);
+}
+
+.shape-pill-1 {
+  width: 180px;
+  height: 36px;
+  top: 26%;
+  left: 18%;
+}
+
+.shape-pill-2 {
+  width: 220px;
+  height: 40px;
+  bottom: 22%;
+  right: 16%;
+}
+
+/* subtle grid lines */
+.grid-lines {
+  position: absolute;
+  inset: 14% 6%;
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(255,255,255,0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.03) 1px,
+      transparent 1px
+    );
+  background-size: 80px 80px;
+  opacity: 0.22;
+}
+
+/* content */
+.promo-content {
+  position: relative;
+  z-index: 5;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.promo-top-text {
+  font-size: 2.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 0.06em;
+}
+
+.promo-code {
+  font-weight: 700;
+}
+
+.promo-main-text {
+  font-size: 4rem;
+  font-weight: 800;
+  margin: 20px 0 0;
+  line-height: 1.05;
+  text-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+.promo-percent {
+  font-size: 4.1rem;
+  margin-right: 6px;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .promo-banner-animated {
+    padding: 55px 14px;
+    border-radius: 14px;
+  }
+  .promo-top-text {
+    font-size: 1.1rem;
+  }
+  .promo-main-text {
+    font-size: 2.1rem;
+  }
+  .promo-percent {
+    font-size: 2.3rem;
+  }
+  .shape-circle-1,
+  .shape-circle-2 {
+    opacity: 0.55;
+  }
+  .grid-lines {
+    inset: 18% 8%;
+    background-size: 60px 60px;
+  }
+}
+</style>

@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>American Home Coverage</title>
+    <link rel="icon" type="image/png" href="image/Fav.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+
+
+  </head>
+
+  <body>
+
+    <div id="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-logo-wrap">
+          <div class="preloader-ring"></div>
+          <div class="preloader-ring preloader-ring-delay"></div>
+          <img src="image/logo.png" alt="American Home Coverage" class="preloader-logo" />
+        </div>
+      </div>
+    </div>
+
+    <div class="top-bar">
+      <div class="container d-flex justify-content-between align-items-center py-1 flex-wrap gap-2">
+        <div>
+          <span class="top-link"><i class="bi bi-telephone"></i>(888) 920-8280</span>
+          <span class="top-link"><i class="bi bi-geo-alt"></i>1050 E Flamingo Road Suite 107-1329 Las Vegas, Nevada
+            89119</span>
+          <span class="top-link"><i class="bi bi-envelope"></i>Sales@americanhomecoverage.com</span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" class="top-link text-danger">Request Service</a>
+          <a href="#" class="top-link">Sign In</a>
+          <a href="#" class="top-link">Real Estate</a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg main-nav">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="https://americanhomecoverage.com/web/img/icons/Logo.png" alt="American Home Coverage">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="homeOwners" role="button" data-bs-toggle="dropdown">
+                Home Owners
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="homeOwners">
+                <li><a class="dropdown-item" href="#what-is">What is a home warranty?</a></li>
+                <li><a class="dropdown-item" href="#why-choose">Why choose us?</a></li>
+                <li><a class="dropdown-item" href="#avoid-costs">Avoid unexpected repair costs</a></li>
+                <li><a class="dropdown-item" href="#quoteModal" data-bs-toggle="modal">Get a free quote</a></li>
+                <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#plans">Shop Plans</a></li>
+            <li class="nav-item"><a class="nav-link" href="#buyers">Buyers &amp; Sellers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#partners">Partners With Us</a></li>
+
+            <li class="nav-item m-link"><a class="nav-link" href="#">Login</a></li>
+            <li class="nav-item m-link"><a class="nav-link" href="#">Real Estate</a></li>
+          </ul>
+
+          <div class="d-flex align-items-center">
+            <a href="tel:18889208280" class="call-quote-btn">
+              <div class="call-icon">
+                <i class="bi bi-telephone-fill"></i>
+              </div>
+              <div class="call-text">
+                <span class="call-title">Call Now for a Free Quote</span><br>
+                <strong class="call-number">1-888-920-8280</strong>
+              </div>
+            </a>
+
+            <button id="themeToggle" class="theme-toggle">
+              <i class="bi bi-moon-stars"></i><span>Dark</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section class="promo-banner-animated section-banner" id="topPromo">
+      <div class="promo-bg-design">
+        <div class="bg-shape bg-shape-left"></div>
+        <div class="bg-shape bg-shape-right"></div>
+        <div class="bg-wave"></div>
+        <div class="bg-glow"></div>
+        <div class="bg-accent-line"></div>
+      </div>
+
+      <div class="promo-content">
+        <h3 class="promo-top-text">
+          🎉 THANKSGIVING SALE
+        </h3>
+        <h2 class="promo-main-text">
+          <span class="promo-percent">40% OFF</span>
+          + 2 MONTHS FREE TODAY ONLY
+        </h2>
+      </div>
+    </section>
+
+    <section class="hero-quote-section">
+      <div class="hero-overlay">
+        <div class="quote-box">
+          <h2 class="hero-title">
+            Protect Your Home Today <br>
+            <span class="highlight">Trusted Home Warranty</span>
+          </h2>
+
+          <form class="quote-form">
+            <div class="form-group">
+              <label for="zip" class="zip-label"><i class="bi bi-geo-alt"></i> ZIP CODE</label>
+              <input type="text" id="zip" class="form-control zip-input" placeholder="ENTER YOUR ZIP CODE">
+            </div>
+            <button type="submit" class="btn-quote">GET A FREE QUOTE</button>
+          </form>
+          <p class="guarantee-text">100% Satisfaction Guarantee — Get Your Quote In Seconds!</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="plan-area" id="plans">
+      <div class="container">
+        <h2 class="plan-title-main text-center my-3 pb-3">Select a plan</h2>
+        <div class="row g-4 align-items-stretch">
+          <div class="col-md-4">
+            <div class="plan-card-v2">
+              <div class="plan-thumb">
+                <img src="https://americanhomecoverage.com/assets/package3.png" alt="Standard Package"
+                  class="plan-thumb-img" />
+              </div>
+
+              <div class="plan-header">
+                <div class="plan-name">Standard Coverage</div>
+              </div>
+
+              <div class="plan-btn-wrap">
+                <button class="plan-btn-choose" type="button" data-bs-toggle="modal" data-bs-target="#quoteModal"
+                  data-plan="Standard Coverage">
+                  Choose Coverage
+                </button>
+              </div>
+
+              <div class="plan-body">
+                <div class="plan-section-label">Systems:</div>
+                <ul class="plan-list">
+                  <li class="plan-item off"><span class="plan-item-label">Air Conditioning</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Heating</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Ductwork</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Plumbing</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Electrical</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Water Heaters</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                </ul>
+
+                <div class="plan-section-label">Appliances:</div>
+                <ul class="plan-list">
+                  <li class="plan-item off"><span class="plan-item-label">Clothes Washer</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Clothes Dryer</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Kitchen Refrigerator</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Built-in Microwave Ovens</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Dishwashers</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Garbage Disposals</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Ranges/Ovens/Cooktops</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Ceiling and Exhaust Fans</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Garage Door Openers</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="plan-card-v2">
+              <div class="plan-thumb">
+                <img src="https://americanhomecoverage.com/assets/package1.png" alt="Platinum Package"
+                  class="plan-thumb-img" />
+              </div>
+              <div class="plan-ribbon">Most popular</div>
+
+              <div class="plan-header">
+                <div class="plan-name">Platinum Coverage</div>
+              </div>
+
+              <div class="plan-btn-wrap">
+                <button class="plan-btn-choose" type="button" data-bs-toggle="modal" data-bs-target="#quoteModal"
+                  data-plan="Platinum Coverage">
+                  Choose Coverage
+                </button>
+              </div>
+
+              <div class="plan-body">
+                <div class="plan-section-label">Systems:</div>
+                <ul class="plan-list">
+                  <li class="plan-item"><span class="plan-item-label">Air Conditioning</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Heating</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Ductwork</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Plumbing</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Electrical</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Water Heaters</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                </ul>
+
+                <div class="plan-section-label">Appliances:</div>
+                <ul class="plan-list">
+                  <li class="plan-item"><span class="plan-item-label">Clothes Washer</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Clothes Dryer</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Kitchen Refrigerator</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Built-in Microwave Ovens</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Dishwashers</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Garbage Disposals</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Ranges/Ovens/Cooktops</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Ceiling and Exhaust Fans</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Garage Door Openers</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="plan-card-v2">
+              <div class="plan-thumb">
+                <img src="https://americanhomecoverage.com/assets/package2.png" alt="Kitchen Package"
+                  class="plan-thumb-img" />
+              </div>
+
+              <div class="plan-header">
+                <div class="plan-name">Kitchen Package</div>
+              </div>
+
+              <div class="plan-btn-wrap">
+                <button class="plan-btn-choose" type="button" data-bs-toggle="modal" data-bs-target="#quoteModal"
+                  data-plan="Kitchen Package">
+                  Choose Coverage
+                </button>
+              </div>
+
+              <div class="plan-body">
+                <div class="plan-section-label">Systems:</div>
+                <ul class="plan-list">
+                  <li class="plan-item off"><span class="plan-item-label">Air Conditioning</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Heating</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Ductwork</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Plumbing</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Electrical</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Water Heaters</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                </ul>
+
+                <div class="plan-section-label">Appliances:</div>
+                <ul class="plan-list">
+                  <li class="plan-item off"><span class="plan-item-label">Clothes Washer</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Clothes Dryer</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Kitchen Refrigerator</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Built-in Microwave Ovens</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Dishwashers</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Garbage Disposals</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item"><span class="plan-item-label">Ranges/Ovens/Cooktops</span><i
+                      class="bi bi-check-circle-fill plan-icon-yes"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Ceiling and Exhaust Fans</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                  <li class="plan-item off"><span class="plan-item-label">Garage Door Openers</span><i
+                      class="bi bi-x-circle-fill plan-icon-no"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="brand-section pb-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="brand-slider">
+              <div class="brand-slide"><img src="https://americanhomecoverage.com/web/img/1.png" alt="Brand 1"></div>
+              <div class="brand-slide"><img src="https://americanhomecoverage.com/web/img/2.png" alt="Brand 2"></div>
+              <div class="brand-slide"><img src="https://americanhomecoverage.com/web/img/3.png" alt="Brand 3"></div>
+              <div class="brand-slide"><img src="https://americanhomecoverage.com/web/img/3.png" alt="Brand 4"></div>
+              <div class="brand-slide"><img src="https://americanhomecoverage.com/web/img/4.png" alt="Brand 5"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-warranty-section">
+      <div class="container-fluid p-0">
+        <div class="row g-0 align-items-stretch">
+          <div class="col-lg-6 col-md-12 text-content">
+            <div class="text-wrapper">
+              <h2 class="title">WHAT IS A HOME WARRANTY ?</h2>
+              <p class="desc">
+                If your home’s appliances or systems break, you may end up paying top dollar to repair them or replace
+                them.
+                An HVAC costs several hundred dollars to repair (if you’re lucky), and several thousands if you need to
+                replace it.
+                A sudden, unexpected expense which may cause a serious dent in your budget.
+              </p>
+              <h5 class="cta-heading">READY TO GET STARTED ?</h5>
+              <a href="#" class="btn-quote" style="background:var(--accent)">GET QUOTE</a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 p-0 image-side">
+            <div class="image-wrap"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="coverage-section text-center py-5">
+      <div class="container">
+        <h2 class=" mb-3">What Do We Cover ?</h2>
+        <p class="text-muted mb-5">
+          In the event your covered system or appliance breaks down, AHC will dispatch a local qualified technician
+          immediately;
+          in the event it cannot be repaired, AHC will replace the unit at no additional cost.
+        </p>
+
+        <div class="row justify-content-center g-4">
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Heating-&-Cooling.png" alt="Heating & Cooling">
+              <h6>Heating & Cooling</h6>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Heating-&-Cooling.png" alt="Electric Systems">
+              <h6>Electric Systems</h6>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Plumbing%20System.png" alt="Plumbing Systems">
+              <h6>Plumbing Systems</h6>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Kitchen%20Appliances.png"
+                alt="Kitchen Appliances">
+              <h6>Kitchen Appliances</h6>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Laundry%20Appliance.png" alt="Laundry Appliance">
+              <h6>Laundry Appliance</h6>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Electronics.png" alt="Electronics">
+              <h6>Electronics</h6>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-3">
+            <div class="cover-item">
+              <img src="https://americanhomecoverage.com/web/img/icons/Pool%20and%20Hot%20Tub.png"
+                alt="Pool and Hot Tub">
+              <h6>Pool and Hot Tub</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-alt" id="how">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <p class="section-sub">With a home warranty, getting help for your covered items is easy.</p>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="how-step text-center">
+              <img
+                src="https://americanhomecoverage.com/web/img/icons/A%20Qualified%20Service%20Provider%20is%20Assigned.png"
+                alt="">
+              <strong>File a claim</strong>
+              1. Place your claim
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-step text-center">
+              <img src="https://americanhomecoverage.com/web/img/icons/Submit%20a%20Claim.png" alt="">
+              <strong>Technician assessment</strong>
+              2. Get assigned a repair professional
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="how-step text-center">
+              <img src="https://americanhomecoverage.com/web/img/icons/The%20appliance%20is%20repaired.png" alt="">
+              <strong>The appliance is repaired</strong>
+              3. System or appliance gets repaired or replaced
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="row align-items-center g-4">
+
+          <!-- Left Image -->
+          <div class="col-md-5 text-center">
+            <img src="https://americanhomecoverage.com/web/img/abotus.png" alt="About us"
+              style="max-width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+
+          <!-- Right Content -->
+          <div class="col-md-7">
+            <h2 class="fw-bold mb-3" style="font-size:1.9rem;">Why wait?</h2>
+            <p class="mb-3" style="font-size:1rem;">
+              Sign up today and get your first month FREE!
+            </p>
+            <button data-bs-toggle="modal" data-bs-target="#quoteModal"
+              style="background:#FF3B30; color:#F9FAFB; border:none; padding:12px 20px; border-radius:26px; font-size:1.2rem; font-weight:500; transition:0.3s;">
+              Get a Free Quote
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer-modern">
+      <div class="container">
+        <div class="row gy-4 align-items-start">
+
+          <div class="col-md-4 text-center text-md-start">
+            <img src="https://americanhomecoverage.com/web/img/icons/Logo.png" alt="American Home Coverage Logo"
+              class="footer-logo mb-3" />
+            <p class="footer-text">
+              Protect your home with trusted warranty coverage. American Home Coverage provides reliable service and
+              peace of mind for homeowners nationwide.
+            </p>
+          </div>
+          <div class="col-md-4 text-center text-md-start">
+            <h5 class="footer-heading">Contact Us</h5>
+            <ul class="footer-list">
+              <li><i class="bi bi-geo-alt-fill"></i> 1050 E Flamingo Road Suite 107-1329, Las Vegas, Nevada 89119</li>
+              <li><i class="bi bi-telephone-fill"></i> (888) 920-8280</li>
+              <li><i class="bi bi-envelope-fill"></i> sales@americanhomecoverage.com</li>
+            </ul>
+          </div>
+          <div class="col-md-4 text-center text-md-start">
+            <h5 class="footer-heading">Quick Links</h5>
+            <ul class="footer-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop Plans</a></li>
+              <li><a href="#">Buyers & Sellers</a></li>
+              <li><a href="#">Partners With Us</a></li>
+              <li><a href="#">Privacy & Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="footer-divider" />
+        <div class="footer-bottom ">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6">
+                <p class="mb-0">
+                  © <span id="year"></span> American Home Coverage. All rights reserved.
+                </p>
+              </div>
+              <div class="col-lg-6">
+                <div class="footer-payment">
+                  <img src="https://americanhomecoverage.com/web/img/icons/DISCOVER.png" class="img-fluid"
+                    alt="Demo SEO" width="80">
+                  <img src="https://americanhomecoverage.com/web/img/icons/MASTER CARD.png " class="img-fluid px-2"
+                    alt="Demo SEO" width="60">
+                  <img src="https://americanhomecoverage.com/web/img/icons/VISA.png" class="img-fluid" alt="Demo SEO"
+                    width="35">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <div class="modal fade modal-modern" id="quoteModal" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content ">
+          <div class="modal-header">
+            <div style="width: 100%;">
+              <h5 class="modal-title">Great news! Coverage is available in 77777</h5>
+              <div class="plan-free">
+                <p class="plan-free-text"><span></span>Instant online quote</p>
+                <p class="plan-free-text"><span></span>Top Rated Coverage</p>
+                <p class="plan-free-text"><span></span>$150 off any plan</p>
+              </div>
+            </div>
+            <button type="button" class="btn-close " data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <form id="quoteForm">
+              <div class="row g-2">
+                <div class="col-md-12">
+                  <label class="form-label mb-1">First Name</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label mb-1">Last Name</label>
+                  <input type="text" class="form-control" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label mb-1">Email</label>
+                  <input type="email" class="form-control" required>
+                </div>
+                <div class="col-md-12">
+                  <label class="form-label mb-1">Phone</label>
+                  <input type="tel" class="form-control" required>
+                </div>
+
+              </div>
+              <button class="btn-quote-submit" type="submit">GET MY FREE QUOTE</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <p style="line-height: 17px;
+              margin: 9px 0;
+              text-align: justify;font-size:11px;">By
+              clicking “Continue,” you agree to American Home Coverage LLC’s <a
+                href="https://americanhomecoverage.com/terms&amp;conditions" target="_blank">Terms of Use </a> and <a
+                href="https://americanhomecoverage.com/privacy/policy" target="_blank">Privacy Policy</a>. You also
+              consent
+              to receive phone calls and SMS messages from Competitive Relocation Services, LLC for updates and
+              marketing
+              purposes. Message frequency may vary. You can opt out at any time by replying “STOP.” Message and data
+              rates may
+              apply.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="ahc-offer-popup" class="ahc-popup-overlay">
+      <div class="ahc-popup-modal">
+        <button class="ahc-popup-close" type="button">&times;</button>
+        <div class="ahc-popup-left">
+          <img src="https://americanhomecoverage.com/assets/img/b981c582978a6896fc7a77c3b589f234b3ad198c.png"
+            alt="Home Warranty Offer" class="ahc-popup-left-img" />
+        </div>
+        <div class="ahc-popup-right">
+          <div class="ahc-popup-right-inner">
+            <img src="https://americanhomecoverage.com/web/img/icons/Logo.png" alt="American Home Coverage"
+              class="ahc-popup-logo" />
+
+            <div class="ahc-popup-byline">
+              Home Warranty by American Home Coverage
+            </div>
+
+            <h2 class="ahc-popup-title">
+              YOUR PROPERTY IS OUR PRIORITY!
+            </h2>
+
+            <p class="ahc-popup-subtitle">
+              Your free quote is just a click away!
+            </p>
+
+            <form id="ahc-popup-form" class="ahc-popup-form">
+              <div class="ahc-popup-input-wrap">
+                <input type="text" class="ahc-popup-input" id="ahc-popup-zip" placeholder="Enter Your Zip Code"
+                  required />
+                <button type="submit" class="ahc-popup-next-btn">
+                  NEXT
+                </button>
+              </div>
+            </form>
+
+            <div class="ahc-popup-call">
+              Have questions? Call us:
+              <a href="tel:18889208280">(888) 920-8280</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>

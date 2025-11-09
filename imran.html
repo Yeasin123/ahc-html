@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Image in Text – Md Yeasin Hossaim Imran</title>
+  <style>
+    /* ---------- Settings ---------- */
+    :root{
+      /* Replace this with your own image URL or a local path like 'images/your-photo.jpg' */
+      --image-url: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop');
+      --page-bg: #0b0d13;
+      --accent: #a7b8ff;
+      --max-width: 1200px;
+      --size: clamp(2.2rem, 9vw + 1rem, 9rem);
+    }
+
+    /* ---------- Page ---------- */
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 70% 20%, #151a28 0%, transparent 60%),
+                  radial-gradient(800px 500px at 20% 80%, #0e1220 0%, transparent 60%),
+                  var(--page-bg);
+      color: #e7e9ee;
+      display: grid;
+      place-items: center;
+      padding: 6vmin 4vmin;
+    }
+
+    .wrap {
+      width: min(100%, var(--max-width));
+      text-align: center;
+    }
+
+    /* ---------- The Image-In-Text Effect ---------- */
+    .hero-text {
+      --stroke-alpha: 0.06; /* adjust outline strength if needed */
+      font-weight: 900;
+      font-size: var(--size);
+      line-height: 0.95;
+      letter-spacing: 0.5px;
+      margin: 0;
+      /* The magic: clip the image to the text */
+      background-image: 
+        /* optional top-to-bottom gradient to improve contrast over busy photos */
+        linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)),
+        var(--image-url);
+      background-size: cover;
+      background-position: center;
+      -webkit-background-clip: text;
+              background-clip: text;
+      -webkit-text-fill-color: transparent; /* Safari/Chrome */
+              color: transparent;           /* fallback */
+
+      /* Subtle outline/shadow so text stays readable on any image */
+      text-shadow:
+        0 0.5px 0 rgba(255,255,255,0.08),
+        0 1px 6px rgba(0,0,0,0.55),
+        0 8px 24px rgba(0,0,0,0.45);
+    }
+
+    /* Extra crisp edges on WebKit (optional, adjust width/alpha) */
+    @supports (-webkit-text-stroke: 1px #000) {
+      .hero-text { -webkit-text-stroke: 10px rgba(255,255,255,var(--stroke-alpha)); }
+    }
+
+    .sub {
+      margin: 18px auto 0;
+      color: #9aa4bd;
+      max-width: 58ch;
+      line-height: 1.5;
+    }
+
+    /* ---------- Helper UI (optional) ---------- */
+    .controls {
+      margin-top: 28px;
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: #1a2134;
+      border: 1px solid #27314c;
+      color: #d8def0;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .button:hover { filter: brightness(1.1); }
+
+    input[type="text"] {
+      width: min(520px, 80vw);
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid #2a3350;
+      background: #0f1424;
+      color: #e7e9ee;
+    }
+
+    .credit{ margin-top: 26px; font-size: 0.9rem; color:#8190b0; }
+    .credit a{ color: var(--accent); text-decoration: none; }
+    .credit a:hover{ text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <!--
+      Tip: Change the text below to any name or title you like.
+      You can also change the image by pasting a URL into the input and pressing "Use Image".
+    -->
+    <h1 class="hero-text" id="title" aria-label="Md Yeasin Hossaim Imran">
+      Md Yeasin Hossaim Imran
+    </h1>
+
+    <p class="sub">Image clipped inside the letters using <code>background-clip: text</code>. Replace the image URL or upload your own file and use its path. Works in all modern browsers.</p>
+
+    <div class="controls" role="group" aria-label="Controls for changing the background image in the text">
+      <input id="imgUrl" type="text" placeholder="Paste an image URL (e.g., https://.../photo.jpg)" />
+      <button class="button" id="apply">Use Image</button>
+      <button class="button" id="reset">Reset</button>
+    </div>
+
+    <p class="credit">Need higher contrast? Try a darker image, or increase the outline by tweaking <code>--stroke-alpha</code> in CSS.</p>
+  </main>
+
+  <script>
+    // Small helper to change the image without editing CSS
+    const title = document.getElementById('title');
+    const input = document.getElementById('imgUrl');
+    const apply = document.getElementById('apply');
+    const reset = document.getElementById('reset');
+
+    const defaultURL = getComputedStyle(document.documentElement)
+      .getPropertyValue('--image-url').trim();
+
+    apply.addEventListener('click', () => {
+      const v = input.value.trim();
+      if(!v) return;
+      title.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), url('${v.replace(/'/g, "%27")}')`;
+    });
+
+    reset.addEventListener('click', () => {
+      title.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.12), rgba(0,0,0,0.12)), ${defaultURL}`;
+      input.value = '';
+    });
+  </script>
+</body>
+</html>

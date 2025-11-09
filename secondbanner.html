@@ -1,0 +1,129 @@
+ <section class="promo-banner-animated section-banner" id="testimran"
+  style="background: {{ $banner->bg_color ? "linear-gradient(120deg, {$banner->bg_color}, {$banner->bg_color_two})" : 'linear-gradient(120deg, #1E3A8A, #3B82F6)' }};">
+  <div class="promo-overlay"></div>
+  <div class="floating-shapes"></div>
+  <div class="promo-content">
+    <h3 class="promo-top-text" style="color: {{ $banner->text_one_color ?? '#E2E8F0' }}">
+      🎉 USE CODE:
+      <span class="promo-code" style="color: {{ $banner->promo_code_color ?? '#FFD700' }}">
+        {{ $banner->promo_code }}
+      </span> 
+      AT CHECKOUT
+    </h3>
+
+    <h2 class="promo-main-text" style="color: {{ $banner->text_two_color ?? '#FACC15' }}">
+      <span class="promo-percent" style="color:{{ $banner->percent_off_color ?? '#22D3EE' }}">
+        {{ $banner->percent_off }}
+      </span> 
+      {{ $banner->text_two ?? '' }}
+    </h2>
+  </div>
+</section>
+
+<style>
+.promo-banner-animated {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 20px;
+  text-align: center;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* glowing particles */
+.promo-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(rgba(255,255,255,0.15), transparent) repeat;
+  background-size: 100px 100px;
+  animation: sparkle 10s linear infinite;
+  pointer-events: none;
+}
+@keyframes sparkle {
+  from { background-position: 0 0; }
+  to { background-position: 100px 100px; }
+}
+
+/* floating circles */
+.floating-shapes::before, .floating-shapes::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  animation: floatShape 10s ease-in-out infinite alternate;
+}
+.floating-shapes::before {
+  width: 120px; height: 120px;
+  top: 10%; left: 20%;
+  animation-delay: 2s;
+}
+.floating-shapes::after {
+  width: 180px; height: 180px;
+  bottom: 10%; right: 15%;
+}
+@keyframes floatShape {
+  from { transform: translateY(0px) scale(1); opacity: 0.6; }
+  to { transform: translateY(-30px) scale(1.1); opacity: 0.9; }
+}
+
+/* sunlight rays */
+
+@keyframes moveRays {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+}
+
+.promo-content {
+  position: relative;
+  z-index: 5;
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.promo-top-text {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  /* animation: floatText 3s ease-in-out infinite; */
+}
+
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.promo-code, .promo-percent {
+  animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { filter: brightness(1); text-shadow: 0 0 15px currentColor; }
+  50% { filter: brightness(1.3); text-shadow: 0 0 30px currentColor; }
+}
+
+.promo-main-text {
+  font-size: 4.3rem;
+  font-weight: 800;
+  margin-top: 27px;
+  margin-bottom: 0;
+  text-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+@media (max-width: 768px) {
+  .promo-main-text { font-size: 2rem; }
+  .promo-percent { font-size: 2.4rem; }
+  .promo-top-text { font-size: 1.1rem; }
+}
+</style>

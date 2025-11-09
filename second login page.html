@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('web/img/icons/favicon.png') }}">
+    <title>Admin Login | AHC</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+      :root{
+        --bg:#0D1117;--card:#111827;--muted:#9CA3AF;--ink:#F9FAFB;--accent:#00C2FF;--accent-2:#0D6186;--danger:#e11d48;--glass:rgba(255,255,255,.06)
+      }
+
+      *,*::before,*::after{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        color:var(--ink);
+        background: radial-gradient(1200px 400px at 50% 110%, #0b1320, #0f172a 60%, #0b1220 100%), linear-gradient(180deg,#0b1020,#0a0f1c);
+        min-height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:24px;
+      }
+
+      .blob{position:fixed;inset:auto;pointer-events:none;filter:blur(32px);opacity:.45;mix-blend-mode:screen;z-index:0}
+      .blob.b1{width:420px;height:420px;background:#00c2ff33;top:-80px;left:-80px;animation:drift 18s ease-in-out infinite}
+      .blob.b2{width:520px;height:520px;background:#7c3aed33;right:-120px;bottom:-120px;animation:drift 22s ease-in-out infinite reverse}
+      .blob.b3{width:360px;height:360px;background:#10b98133;left:40%;top:70%;animation:drift 26s ease-in-out infinite}
+      @keyframes drift{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,-30px) scale(1.1)}}
+
+      .brand{position:absolute;top:16px;left:20px;display:flex;align-items:center;gap:10px;z-index:3}
+      .brand img{width:min(260px,28vw);height:auto}
+
+      .auth-shell{position:relative;z-index:1;width:min(1100px,96vw)}
+      .auth-card{
+        background: linear-gradient(180deg, #111827, #0b111b);
+        border: 1px solid #ffffff12;
+        border-radius: 20px;
+        padding: clamp(16px, 2.5vw, 28px);
+        box-shadow: 0 20px 60px #00000066;
+      }
+
+      .scene{position:relative;border-radius:16px;overflow:hidden;background:radial-gradient(1200px 400px at 50% 110%, #0b1320, #0f172a 60%, #0b1220 100%);height:clamp(220px, 38vh, 420px)}
+      .scene .glass{position:absolute;inset:0;background:linear-gradient(180deg,var(--glass),transparent 70%);border:1px solid #ffffff0f;border-radius:16px}
+      canvas#stars, canvas#rain{position:absolute;inset:0;display:block}
+
+      .characters{position:absolute;inset:0;display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:center;gap:32px;width:100%;height:100%;pointer-events:none}
+      .characters.follow .pupil{opacity:1;transition:opacity .2s}
+      .characters.shy .character{transform:rotateY(180deg) rotate(6deg) scale(.98);filter:brightness(.95);animation-play-state:paused}
+      .characters.shy .pupil{opacity:0;transform:translate(0,10px) scale(.7);transition:opacity .2s, transform .2s}
+
+      .character{flex:0 0 auto;width:168px;position:relative;transform-style:preserve-3d;transform-origin:50% 60%;animation:bob 4.5s ease-in-out infinite}
+      .character:nth-child(2){animation-duration:5.2s;animation-delay:.2s}
+      @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+      .face{width:128px;height:152px;border-radius:26px;background:linear-gradient(180deg,#FFFFFF,#e7edf8);box-shadow:0 12px 26px rgba(20,40,80,.20);position:relative;margin:0 auto;padding-top:18px;transform:translateZ(24px)}
+      .hair{position:absolute;top:-10px;left:10px;right:10px;height:36px;border-radius:14px;background:linear-gradient(180deg,#374151,#0b0f19);opacity:.18}
+      .eyes{width:82%;display:flex;justify-content:space-between;align-items:center;margin:10px auto 0}
+      .eye{width:30px;height:30px;border-radius:50%;background:#fff;box-shadow:inset 0 -4px 0 rgba(0,0,0,.05);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+      .pupil{width:12px;height:12px;border-radius:50%;background:#111827;transform:translate(0,0);transition:transform .05s linear, opacity .2s ease}
+      .lid{position:absolute;left:0;right:0;height:50%;background:#e7edf8}
+      .lid.top{top:0;transform:translateY(-100%)}
+      .lid.bottom{bottom:0;transform:translateY(100%)}
+      .eye.blink .top,.eye.closed .top{transform:translateY(0)}
+      .eye.blink .bottom,.eye.closed .bottom{transform:translateY(0)}
+      .eye.closed .pupil{opacity:0;transform:translate(0,10px) scale(.7)}
+      .blush{width:26px;height:8px;border-radius:8px;background:linear-gradient(90deg,#ffd6dd,#ffefef);opacity:.7;margin:10px auto 0}
+      .mouth{width:42px;height:10px;border-radius:999px;background:#f49aa4;margin:10px auto 0;opacity:.95}
+
+      .auth-form{max-width:520px;margin-inline:auto}
+      .auth-form h2{margin:0 0 10px 0;font-size:clamp(26px,2.4vw,32px);letter-spacing:.2px;text-align:center;color:#E5F4FF}
+      .lead{margin:0;color:var(--muted);font-size:clamp(16px,1.6vw,19px);text-align:center}
+      .lead strong{color:#783FEE!important;font-weight:700}
+
+      label{font-size:15px;color:#cbd5e1;font-weight:700}
+      .input{display:flex;align-items:center;gap:8px;background:#0b1420;padding:12px;border-radius:12px;border:1px solid #ffffff12}
+      .input:focus-within{border-color:#00c2ff88;box-shadow:0 0 0 4px #00c2ff22}
+      .input input{border:0;background:transparent;outline:none;width:100%;font-size:15px;color:#e5e7eb}
+      .eye-btn{background:transparent;border:0;padding:6px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+      .submit{margin-top:8px;padding:13px 16px;border-radius:14px;border:0;background:linear-gradient(90deg,var(--accent),#7c3aed);color:#001018;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 12px 24px #00c2ff33,inset 0 -6px 10px #00000022;letter-spacing:.3px;position:relative;overflow:hidden}
+      .submit::after{content:"";position:absolute;inset:0;background:radial-gradient(120px 40px at var(--mx,10%) 10%, #ffffff99, transparent 45%);opacity:0;transition:opacity .25s}
+      .submit:hover::after{opacity:.55}
+      .submit:active{transform:translateY(1px)}
+      .is-invalid{outline:0}
+      .invalid-feedback{display:block;color:var(--danger);font-size:12px;margin:6px 2px 0}
+      .input.invalid{border-color:rgba(225,29,72,.55);background:#2a0f1a}
+
+      input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus{
+        -webkit-box-shadow:0 0 0 1000px #0b1420 inset !important; -webkit-text-fill-color:#fff !important; caret-color:#fff !important; border-radius:12px;
+      }
+
+      @media (max-width: 992px){
+        .scene{height:clamp(220px, 34vh, 360px)}
+      }
+      @media (max-width: 768px){ 
+        body{padding:16px}
+        .characters{gap:20px}
+        .character{width:140px;height:210px}
+        .brand{top:12px;left:14px}
+        .blob{filter:blur(28px);opacity:.38}
+      }
+      @media (max-width: 576px){ 
+        .blob{display:none} 
+        .auth-card{padding:16px}
+        .scene{order:2; height:260px; margin-top:12px}
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .character, .blob{animation:none}
+        .submit::after{display:none}
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="brand d-none d-md-flex">
+      <img src="{{ asset('assets/img/Logo 01.png') }}" alt="AHC" />
+    </div>
+
+    <div class="auth-shell">
+      <div class="auth-card">
+        <div class="container-fluid">
+          <div class="row g-3 align-items-stretch">
+            <div class="col-12 col-lg-6 order-2 order-lg-1">
+              <div class="scene" id="scene" aria-hidden="true">
+                <canvas id="stars"></canvas>
+                <div class="characters follow" id="characters">
+                  <div class="character">
+                    <div class="face">
+                      <div class="hair"></div>
+                      <div class="eyes">
+                        <div class="eye">
+                          <div class="lid top"></div>
+                          <div class="pupil"></div>
+                          <div class="lid bottom"></div>
+                        </div>
+                        <div class="eye">
+                          <div class="lid top"></div>
+                          <div class="pupil"></div>
+                          <div class="lid bottom"></div>
+                        </div>
+                      </div>
+                      <div class="blush" style="width:30px"></div>
+                      <div class="mouth"></div>
+                    </div>
+                  </div>
+                  <div class="character">
+                    <div class="face">
+                      <div class="hair" style="left:auto;right:8px;opacity:.22"></div>
+                      <div class="eyes">
+                        <div class="eye">
+                          <div class="lid top"></div>
+                          <div class="pupil"></div>
+                          <div class="lid bottom"></div>
+                        </div>
+                        <div class="eye">
+                          <div class="lid top"></div>
+                          <div class="pupil"></div>
+                          <div class="lid bottom"></div>
+                        </div>
+                      </div>
+                      <div class="blush" style="width:26px"></div>
+                      <div class="mouth" style="width:36px;background:#f6b28c"></div>
+                    </div>
+                  </div>
+                </div>
+                <canvas id="rain"></canvas>
+                <div class="glass"></div>
+              </div>
+            </div>
+
+            <div class="col-12 col-lg-6 d-flex order-1 order-lg-2">
+              <form class="auth-form w-100" method="POST" action="{{ route('login') }}" novalidate>
+                @csrf
+                <h2>Admin Login</h2>
+                <p class="lead">Welcome Back</p>
+                <div class="mt-3">
+                  <label for="email" class="form-label">Email</label>
+                  <div class="input @error('email') invalid @enderror ">
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="you@example.com" autocomplete="username" class="form-control bg-transparent border-0 p-0 @error('email') is-invalid @enderror" required />
+                  </div>
+                  @error('email')
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="mt-2">
+                  <label for="password" class="form-label">Password</label>
+                  <div class="input @error('password') invalid @enderror align-items-center">
+                    <input id="password" type="password" name="password" placeholder="password" autocomplete="current-password" class="form-control bg-transparent border-0 p-0 @error('password') is-invalid @enderror" required />
+                    <button type="button" class="eye-btn" id="toggleEye" aria-pressed="false" aria-label="Show password" title="Show/Hide password">
+                      <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+                        <line x1="2" y1="2" x2="22" y2="22"></line>
+                      </svg>
+                    </button>
+                  </div>
+                  @error('password')
+                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-2">
+                  <label class="d-flex align-items-center gap-2">
+                    <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <span class="small text-light">Remember me</span>
+                  </label>
+                  {{-- <a class="small" href="{{ route('password.request') }}">Forgot password?</a> --}}
+                </div>
+                <button class="submit w-100 mt-3" id="loginBtn" style="color:#fff" type="submit">Log in</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const qs = s => document.querySelector(s);
+      const qsa = s => Array.from(document.querySelectorAll(s));
+      const scene = qs('#scene');
+      const charactersEl = qs('#characters');
+      const pupils = qsa('.pupil');
+      const eyes = qsa('.eye');
+      const password = qs('#password');
+      const toggleEye = qs('#toggleEye');
+      const eyeIcon = qs('#eyeIcon');
+      const loginBtn = qs('#loginBtn');
+
+      let isShowing = false;
+
+      (function stars(){
+        const c = qs('#stars');
+        if(!c || !scene) return;
+        const ctx = c.getContext('2d');
+        let w,h,stars = []; const COUNT = 90;
+        function resize(){
+          const rect = scene.getBoundingClientRect();
+          w = c.width = rect.width;
+          h = c.height = rect.height;
+          stars = new Array(COUNT).fill(0).map(()=>({
+            x: Math.random()*w,
+            y: Math.random()*h,
+            z: Math.random()*1 + 0.2,
+            s: Math.random()*1.8 + 0.6
+          }));
+        }
+        new ResizeObserver(resize).observe(scene);
+        resize();
+        function tick(){
+          ctx.clearRect(0,0,w,h);
+          ctx.globalAlpha = .7;
+          for(const s of stars){
+            s.y += s.z; if(s.y>h) s.y = -10;
+            ctx.beginPath(); ctx.arc(s.x,s.y,s.s,0,Math.PI*2); ctx.fillStyle='white'; ctx.fill();
+          }
+          requestAnimationFrame(tick);
+        }
+        tick();
+      })();
+
+      function setFollow(on){
+        if(on){charactersEl.classList.add('follow');charactersEl.classList.remove('shy');pupils.forEach(p=>p.style.transform='translate(0,0)')}
+        else{charactersEl.classList.remove('follow');charactersEl.classList.add('shy');pupils.forEach(p=>p.style.transform='translate(0,0)')}
+      }
+      function setEyesClosed(closed){eyes.forEach(e=>e.classList.toggle('closed',closed))}
+      setFollow(true); setEyesClosed(false);
+
+      toggleEye.addEventListener('click',()=>{
+        isShowing = !isShowing; password.type = isShowing ? 'text':'password';
+        toggleEye.setAttribute('aria-pressed', String(isShowing));
+        toggleEye.setAttribute('aria-label', isShowing ? 'Hide password':'Show password');
+        setFollow(!isShowing); setEyesClosed(isShowing);
+        eyeIcon.innerHTML = isShowing
+          ? '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path><circle cx="12" cy="12" r="3"></circle>'
+          : '<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path><line x1="2" y1="2" x2="22" y2="22"></line>';
+        spark(toggleEye);
+      });
+
+      let mouse = {x:0,y:0};
+      function updatePupils(){
+        if(!charactersEl.classList.contains('follow')) return;
+        const sceneRect = scene.getBoundingClientRect();
+        pupils.forEach(p=>{
+          const eye = p.parentElement; const eyeRect = eye.getBoundingClientRect();
+          const cx = eyeRect.left + eyeRect.width/2 - sceneRect.left;
+          const cy = eyeRect.top + eyeRect.height/2 - sceneRect.top;
+          const vx = mouse.x - cx, vy = mouse.y - cy; const dist = Math.hypot(vx,vy)||1;
+          const dirx = vx/dist, diry = vy/dist; const maxTravel = Math.min(8 + eyeRect.width*0.12, 12);
+          p.style.transform = `translate(${(dirx*maxTravel).toFixed(2)}px, ${(diry*maxTravel).toFixed(2)}px)`;
+        });
+      }
+      function setMouseFromEvent(e){
+        const r = scene.getBoundingClientRect();
+        const ex = (e.clientX ?? e.touches?.[0]?.clientX); const ey = (e.clientY ?? e.touches?.[0]?.clientY);
+        mouse.x = ex - r.left; mouse.y = ey - r.top;
+        if(charactersEl.classList.contains('follow')) requestAnimationFrame(updatePupils);
+      }
+      scene.addEventListener('mousemove', setMouseFromEvent);
+      scene.addEventListener('touchmove', setMouseFromEvent, {passive:true});
+      scene.addEventListener('mouseleave', ()=>{ if(!charactersEl.classList.contains('follow')) return; pupils.forEach(p=>p.style.transform='translate(0px,0px)')});
+
+      function scheduleBlink(eye){
+        const time = Math.random()*2500 + 1800; setTimeout(()=>{eye.classList.add('blink'); setTimeout(()=>{eye.classList.remove('blink'); scheduleBlink(eye);},160)}, time)
+      }
+      eyes.forEach(scheduleBlink);
+
+      function spark(target){
+        const r = target.getBoundingClientRect(); const cx = r.left + r.width/2, cy = r.top + r.height/2;
+        for(let i=0;i<12;i++){
+          const s = document.createElement('span');
+          s.style.cssText = `position:fixed;left:${cx}px;top:${cy}px;width:6px;height:6px;border-radius:50%;background:hsl(${Math.random()*360},100%,70%);pointer-events:none;z-index:99;`;
+          document.body.appendChild(s);
+          const a = Math.random()*Math.PI*2; const d = 40 + Math.random()*36; const x = Math.cos(a)*d; const y = Math.sin(a)*d;
+          s.animate([{transform:'translate(0,0)',opacity:1},{transform:`translate(${x}px,${y}px)`,opacity:0}],{duration:500+Math.random()*300,easing:'cubic-bezier(.2,.8,.2,1)'}).onfinish=()=>s.remove();
+        }
+      }
+    </script>
+
+    <script>
+
+      (function rain(){
+        const prefersReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if(prefersReduce.matches) return;
+        const scene = document.getElementById('scene');
+        const c = document.getElementById('rain');
+        if(!scene || !c) return;
+        const ctx = c.getContext('2d', {alpha:true});
+        let w=0,h=0,dpr=1,drops=[]; const BASE_DENSITY = 0.0016;
+        function makeDrop(){ return {x:Math.random()*w, y:Math.random()*h, len:12+Math.random()*20, vy:(4+Math.random()*8)*(h/600), vx:0.4+Math.random()*0.8, alpha:0.25+Math.random()*0.35}; }
+        function resize(){
+          const rect = scene.getBoundingClientRect(); w = Math.max(1, Math.floor(rect.width)); h = Math.max(1, Math.floor(rect.height));
+          dpr = Math.max(1, Math.min(2, window.devicePixelRatio||1));
+          c.width = Math.floor(w*dpr); c.height = Math.floor(h*dpr); c.style.width = w+'px'; c.style.height = h+'px'; ctx.setTransform(dpr,0,0,dpr,0,0);
+          const target = Math.max(80, Math.floor(w*h*BASE_DENSITY)); drops = new Array(target).fill(0).map(makeDrop);
+        }
+        new ResizeObserver(resize).observe(scene); resize();
+        let raf; function tick(){
+          ctx.clearRect(0,0,w,h); ctx.lineWidth = 1.2; ctx.lineCap='round';
+          for(const d of drops){
+            ctx.strokeStyle = `rgba(171,217,255,${d.alpha})`;
+            ctx.beginPath(); ctx.moveTo(d.x,d.y); ctx.lineTo(d.x - d.vx*d.len*0.6, d.y + d.len); ctx.stroke();
+            d.x += d.vx; d.y += d.vy; if(d.y>h+20 || d.x>w+20){ d.x = Math.random()*w - 20; d.y = -Math.random()*80 - 20; d.len = 12 + Math.random()*20; d.vy = (4 + Math.random()*8) * (h/600); d.vx = 0.4 + Math.random()*0.8; d.alpha = 0.25 + Math.random()*0.35; }
+          }
+          raf = requestAnimationFrame(tick);
+        }
+        tick();
+        document.addEventListener('visibilitychange',()=>{ if(document.hidden) cancelAnimationFrame(raf); else tick(); });
+      })();
+
+      const form = document.querySelector('form');
+      const emailInput = document.getElementById('email');
+      const welcomeText = document.querySelector('.lead');
+      function toTitleCase(name){ return name ? name.charAt(0).toUpperCase()+name.slice(1) : name }
+      const savedUser = localStorage.getItem('ahcUser');
+      if(savedUser){ welcomeText.innerHTML = `Welcome Back, <strong>${toTitleCase(savedUser)}</strong>`; }
+      form?.addEventListener('submit', ()=>{ const email = emailInput?.value?.trim(); if(email){ const userName = email.split('@')[0]; localStorage.setItem('ahcUser', userName); } });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
