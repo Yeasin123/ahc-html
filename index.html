@@ -15,13 +15,11 @@
     <link rel="stylesheet" type="text/css"
       href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
-
-
   </head>
 
   <body>
 
-    <div id="preloader">
+    <!-- <div id="preloader">
       <div class="preloader-inner">
         <div class="preloader-logo-wrap">
           <div class="preloader-ring"></div>
@@ -29,7 +27,8 @@
           <img src="image/logo.png" alt="American Home Coverage" class="preloader-logo" />
         </div>
       </div>
-    </div>
+    </div> -->
+
 
     <div class="top-bar">
       <div class="container d-flex justify-content-between align-items-center py-1 flex-wrap gap-2">
@@ -47,64 +46,65 @@
       </div>
     </div>
 
-    <nav class="navbar navbar-expand-lg main-nav">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <img src="https://americanhomecoverage.com/web/img/icons/Logo.png" alt="American Home Coverage">
-        </a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="homeOwners" role="button" data-bs-toggle="dropdown">
-                Home Owners
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="homeOwners">
-                <li><a class="dropdown-item" href="#what-is">What is a home warranty?</a></li>
-                <li><a class="dropdown-item" href="#why-choose">Why choose us?</a></li>
-                <li><a class="dropdown-item" href="#avoid-costs">Avoid unexpected repair costs</a></li>
-                <li><a class="dropdown-item" href="#quoteModal" data-bs-toggle="modal">Get a free quote</a></li>
-                <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
-              </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#plans">Shop Plans</a></li>
-            <li class="nav-item"><a class="nav-link" href="#buyers">Buyers &amp; Sellers</a></li>
-            <li class="nav-item"><a class="nav-link" href="#partners">Partners With Us</a></li>
-
-            <li class="nav-item m-link"><a class="nav-link" href="#">Login</a></li>
-            <li class="nav-item m-link"><a class="nav-link" href="#">Real Estate</a></li>
-          </ul>
-
-          <div class="d-flex align-items-center">
-            <a href="tel:18889208280" class="call-quote-btn">
-              <div class="call-icon">
-                <i class="bi bi-telephone-fill"></i>
-              </div>
-              <div class="call-text">
-                <span class="call-title">Call Now for a Free Quote</span><br>
-                <strong class="call-number">1-888-920-8280</strong>
-              </div>
-            </a>
-
-            <button id="themeToggle" class="theme-toggle">
-              <i class="bi bi-moon-stars"></i><span>Dark</span>
-            </button>
+    <div class="top-bar-mobile">
+      <div class="container ">
+        <div class="d-flex justify-content-between align-items-center py-1 flex-wrap gap-2">
+          <span class="top-link"><i class="bi bi-telephone"></i>(888) 920-8280</span>
+          <div class="d-flex align-items-center gap-2">
+            <a href="#" class="top-link text-danger">Request Service</a>
+            <a href="#" class="top-link">Sign In</a>
           </div>
         </div>
       </div>
-    </nav>
-
-  <section class="promo-banner-image" id="topPromo">
-    <div class="promo-content">
-      <h3 class="promo-top-text">THANKSGIVING SAVINGS EVENT</h3>
-      <h2 class="promo-main-text"><span>40% OFF</span> + 2 MONTHS FREE!</h2>
     </div>
-  </section>
+    <header class="ahc-header">
+      <nav class="navbar navbar-expand-lg main-nav">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img src="https://americanhomecoverage.com/web/img/icons/Logo.png" alt="American Home Coverage">
+          </a>
 
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="homeOwners" role="button" data-bs-toggle="dropdown">
+                  Home Owners
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="homeOwners">
+                  <li><a class="dropdown-item" href="#what-is">What is a home warranty?</a></li>
+                  <li><a class="dropdown-item" href="#why-choose">Why choose us?</a></li>
+                  <li><a class="dropdown-item" href="#avoid-costs">Avoid unexpected repair costs</a></li>
+                  <li><a class="dropdown-item" href="#quoteModal" data-bs-toggle="modal">Get a free quote</a></li>
+                  <li><a class="dropdown-item" href="#contact">Contact Us</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="#plans">Shop Plans</a></li>
+              <li class="nav-item"><a class="nav-link" href="#buyers">Buyers &amp; Sellers</a></li>
+              <li class="nav-item"><a class="nav-link" href="#partners">Partners With Us</a></li>
+
+              <li class="nav-item m-link"><a class="nav-link" href="#">Real Estate</a></li>
+            </ul>
+
+            <div class="d-flex align-items-center">
+              <button id="themeToggle" class="theme-toggle">
+                <i class="bi bi-moon-stars"></i><span>Dark</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  
+    <section class="promo-banner-image" id="topPromo">
+      <div class="promo-content">
+        <h3 class="promo-top-text">THANKSGIVING SAVINGS EVENT</h3>
+        <h2 class="promo-main-text"><span>40% OFF</span> + 2 MONTHS FREE!</h2>
+      </div>
+    </section>
 
     <section class="hero-quote-section">
       <div class="hero-overlay">
@@ -568,9 +568,7 @@
             </form>
           </div>
           <div class="modal-footer">
-            <p style="line-height: 17px;
-              margin: 9px 0;
-              text-align: justify;font-size:11px;">By
+            <p>By
               clicking “Continue,” you agree to American Home Coverage LLC’s <a
                 href="https://americanhomecoverage.com/terms&amp;conditions" target="_blank">Terms of Use </a> and <a
                 href="https://americanhomecoverage.com/privacy/policy" target="_blank">Privacy Policy</a>. You also

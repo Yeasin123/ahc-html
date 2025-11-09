@@ -93,7 +93,7 @@ window.addEventListener("load", function () {
   const loader = document.getElementById("preloader");
   if (!loader) return;
   loader.classList.add("hide");
-  setTimeout(() => loader.remove(), 2000);
+  setTimeout(() => loader.remove(), 1000);
 });
 
 $(document).ready(function () {
@@ -102,7 +102,7 @@ $(document).ready(function () {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
-    arrows: true, // 👈 enable arrows
+    arrows: true,
     dots: false,
     pauseOnHover: false,
     prevArrow: '<button type="button" class="slick-prev">&#10094;</button>',
@@ -110,19 +110,25 @@ $(document).ready(function () {
     responsive: [
       {
         breakpoint: 1024,
-        settings: { slidesToShow: 4 }
+        settings: {
+          slidesToShow: 4
+        }
       },
       {
         breakpoint: 768,
-        settings: { slidesToShow: 3 }
+        settings: {
+          slidesToShow: 3,
+          arrows: false
+        }
       },
       {
         breakpoint: 480,
-        settings: { slidesToShow: 2 }
+        settings: {
+          slidesToShow: 2,
+          arrows: false
+        }
       }
     ]
   });
 });
-
-
 
